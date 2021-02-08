@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" description="Omkar Bhale"/>
+    <title>Calculate!!</title>
+</head>
+
+<body topmargin="50" leftmargin="18%" bgcolor="grey" onkeydown="enternum(event);">
+    <div style="font-size: 2cm; font-style: oblique;">Calculator</div>
+    <button onclick="clearScreen();">Clear</button><button onclick="Backspace();;">BackSpace</button>
+    <div id="container">
+        <div id="main">
+
+        </div>
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(7, this);" type="button" value="7">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(8, this);" type="button" value="8">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(9, this);" type="button" value="9">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="operate('div', this);" type="button" value="/"><br>
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(4, this);" type="button" value="4">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(5, this);" type="button" value="5">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(6, this);" type="button" value="6">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="operate('mul', this);" type="button" value="*"><br>
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(1, this);" type="button" value="1">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(2, this);" type="button" value="2">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(3, this);" type="button" value="3">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="operate('sub', this);" type="button" value="-"><br>
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb('.', this);" type="button" value=".">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="numb(0, this);" type="button" value="0">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="ans(this);" type="button" value="=">
+        <input class="Normal" onmouseover="glow(this);" onmouseout="revGlow(this);" onmousedown="clickstart(this);" onmouseup="clickstop(this);" onclick="operate('add', this);" type="button" value="+">
+    </div>
+    <script src="calculate.js"></script>
+    <link rel="stylesheet" href="styling.css" />
+</body>
+
+</html>

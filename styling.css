@@ -1,0 +1,60 @@
+#container {
+    height: 15cm;
+    width: 18cm;
+    border: solid;
+    border-bottom-right-radius: 5%;
+    border-bottom-left-radius: 5%;
+    background-color:rgb(0, 3, 151);
+    font-size: 1.6cm;
+}
+
+#main {
+    overflow: hidden;
+    height: 2cm;
+    width: 17.88cm;
+    border: solid;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    background-color: aliceblue;
+    font-size: 1.6cm;
+    text-align: right;
+}
+
+.Normal {
+    width: 20%;
+    height: 18%;
+    border: solid rgb(117, 0, 0);
+    border-radius: 8%;
+    border-width: 3px;
+    margin-left: 2.6%;
+    margin-top: 1.75%;
+    font-size: 1cm;
+    background-color: blueviolet;
+}
+
+.glowing {
+    width: 20%;
+    height: 18%;
+    border: solid rgb(0, 0, 0);
+    border-radius: 8%;
+    border-width: 3px;
+    margin-left: 2.6%;
+    margin-top: 1.75%;
+    font-size: 1cm;
+    background-color: blue;
+}
+
+.clicked {
+    width: 20%;
+    height: 18%;
+    border: solid black;
+    border-radius: 8%;
+    border-width: 3px;
+    margin-left: 2.6%;
+    margin-top: 1.75%;
+    font-size: 1cm;
+    /* background-color: blue; */
+    background-color: red;
+}
