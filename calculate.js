@@ -1,172 +1,60 @@
-function numb(k, ele) {
-    if (!(document.getElementById("main").innerHTML.includes(".") && k == ".")) {
-        if (!input1) {
-            document.getElementById("main").innerHTML += k;
-        }
-        if (input1) {
-            var len = input1.length;
-            if (document.getElementById("main").innerHTML[len] == "+" || document.getElementById("main").innerHTML[len] == "-" || document.getElementById("main").innerHTML[len] == "*" || document.getElementById("main").innerHTML[len] == "/") {
-                clearScr();
-                document.getElementById("main").innerHTML += k;
-            } else {
-                document.getElementById("main").innerHTML += k;
-            }
-        }
-    }
-}
+const evaluateButton = document.getElementById("evaluate-button");
+const input1Element = document.getElementById('input1')
+const input2Element = document.getElementById('input2')
+const outputElement = document.getElementById('output')
 
-function clearScreen() {
+evaluateButton.addEventListener("click", evaluate);
+input1Element.addEventListener('input', validate);
+input2Element.addEventListener('input', validate);
+
+function evaluate() {
+    let input1 = parseInt(input1Element.value);
+    let input2 = parseInt(input2Element.value);
     
-    document.getElementById("main").innerHTML = "";
-    input1 = "";
-    input2 = "";
-}
-
-function clearScr() {
-    document.getElementById("main").innerHTML = "";
-}
-
-var operation;
-var input1;
-var input2;
-
-function operate(k, ele) {
-    input1 = document.getElementById("main").innerHTML;
-    if (k == "add") {
-        
-        operation = "add";
-        document.getElementById("main").innerHTML += "+";
-    }
-
-    if (k == "sub") {
-        
-        operation = "sub";
-        document.getElementById("main").innerHTML += "-";
-    }
-
-    if (k == "div") {
-        
-        operation = "div";
-        document.getElementById("main").innerHTML += "/";
-    }
-
-    if (k == "mul") {
-        
-        operation = "mul";
-        document.getElementById("main").innerHTML += "*";
-    }
-    clickstart(ele);
-
-}
-
-
-function ans(ele) {
-    
-    input2 = document.getElementById("main").innerHTML;
-    clickstart(ele);
-    switch (operation) {
+    const operation = document.getElementById('operations').value;
+    let result;
+    switch(operation) {
         case "add":
-            document.getElementById("main").innerHTML = parseFloat(input1) + parseFloat(input2);
-            input1 = document.getElementById("main").innerHTML;
-            input2 = "";
+            result = input1 + input2;
             break;
         case "sub":
-            document.getElementById("main").innerHTML = input1 - input2;
-            input1 = document.getElementById("main").innerHTML;
-            input2 = "";
-            break;
-        case "div":
-            document.getElementById("main").innerHTML = input1 / input2;
-            input1 = document.getElementById("main").innerHTML;
-            input2 = "";
+            result = input1 - input2;
             break;
         case "mul":
-            document.getElementById("main").innerHTML = input1 * input2;
-            input1 = document.getElementById("main").innerHTML;
-            input2 = "";
+            result = input1 * input2;
             break;
-        default:
-            
+        case "div":
+            result = input1 / input2;
             break;
     }
+    updateDOMResult(result);
 }
 
-function Backspace() {
-    document.getElementById("main").innerHTML = document.getElementById("main").innerHTML.slice(0, -1);
-}
-
-function enternum(event) {
-    
-    switch (event.key) {
-        case "1":
-            numb(1);
-            break;
-        case "2":
-            numb(2);
-            break;
-        case "3":
-            numb(3);
-            break;
-        case "4":
-            numb(4);
-            break;
-        case "5":
-            numb(5);
-            break;
-        case "6":
-            numb(6);
-            break;
-        case "7":
-            numb(7);
-            break;
-        case "8":
-            numb(8);
-            break;
-        case "9":
-            numb(9);
-            break;
-        case "0":
-            numb(0);
-            break;
-        case "/":
-            operate("div");
-            break;
-        case "*":
-            operate("mul");
-            break;
-        case ".":
-            numb(".");
-            break;
-        case "=", "Enter":
-            ans("ans");
-            break;
-        case "+":
-            operate("add");
-            break;
-        case "-":
-            operate("sub");
-            break;
-        case "Backspace":
-            Backspace();
-            break;
+function validate(event) {
+    let input = event.target.value;
+    // only check the last character
+    const lastCharacter = input[input.length - 1];
+    if(isNaN(parseInt(lastCharacter))) {
+        input = input.substr(0, input.length - 1);
+        event.target.value = input;
     }
+    resetOutput();
+    if(input1Element.value != "" && input2Element.value != "")
+        evaluate();
 }
 
-function glow(ele) {
-    ele.className = "glowing";
+function updateDOMResult(result) {
+    if(isNaN(result)) {
+        outputElement.innerHTML = `
+        Some unexpected error occured! <br> Here is the result if you're STILL interested: ${result}
+        `
+        return;
+    }
+    outputElement.innerHTML = `
+    Here is the answer you are looking for: ${result}
+    `
 }
 
-function revGlow(ele) {
-    ele.className = "Normal";
-}
-
-
-function clickstart(ele) {
-    
-    ele.className = "clicked";
-}
-
-function clickstop(ele) {
-    
-    ele.className = "glowing";
+function resetOutput() {
+    outputElement.innerHTML = `Your output will be shown here :)`;
 }
